@@ -9,7 +9,7 @@ Rube Goldberg Challenge:
  	  then renders an arc.
  2. [x] 2. add object grabbing/throwing 
  	- can grab/throw ball. 
- 	- reworked grabbing/throwing using the observer pattern
+ 	- reworked grabbing/throwing using the observer pattern, different release actions defined
  3. [ ] 3. create rube goldberg objects
  	- metal plank - plank with side rails, can't drop ball
  	- teleport target - place origin target, place destination target, moves ball from origin -> destination
