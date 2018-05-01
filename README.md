@@ -4,7 +4,7 @@ Rube Goldberg Challenge:
  1. [x] 1. add teleportation
  	- reworked arc renderer serveral times, now uses parabolic raycaster to determine time to target,
  	  then renders an arc.
- 2. [ ] 2. add object grabbing/throwing -> _**added, needs polish**_
+ 2. [x] 2. add object grabbing/throwing -> _**needs polish**_
  3. [ ] 3. create rube goldberg objects
  	- try different geometries, colors, physics functions
  4. [ ] 4. create object menu -> _**added, needs polish**_
