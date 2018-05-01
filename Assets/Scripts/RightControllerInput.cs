@@ -3,6 +3,7 @@
  */
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class RightControllerInput : MonoBehaviour {
 
@@ -19,7 +20,7 @@ public class RightControllerInput : MonoBehaviour {
 
 	// actions
 	public event Action<Collider, SteamVR_Controller.Device, Transform> GrabAction;
-	public event Action<Collider, SteamVR_Controller.Device> ReleaseAction;
+	public event Action<Collider, SteamVR_Controller.Device, string> ReleaseAction;
 
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -55,10 +56,12 @@ public class RightControllerInput : MonoBehaviour {
 		}
 	}
 
+	string[] grabableObjects = {"place","throw"};
+
 	void OnTriggerStay(Collider col){
-		if(col.gameObject.CompareTag("throwable")){
+		if(grabableObjects.Contains(col.gameObject.tag)){
 			if(controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
-				ReleaseAction(col, controller);
+				ReleaseAction(col, controller, col.gameObject.tag);
 			else if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
 				GrabAction(col, controller, transform);
 		}
