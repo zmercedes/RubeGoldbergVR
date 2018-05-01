@@ -9,6 +9,7 @@ Rube Goldberg Challenge:
  	  then renders an arc.
  2. [x] 2. add object grabbing/throwing 
  	- can grab/throw ball. 
+ 	- reworked grabbing/throwing using the observer pattern
  3. [ ] 3. create rube goldberg objects
  	- metal plank - plank with side rails, can't drop ball
  	- teleport target - place origin target, place destination target, moves ball from origin -> destination
@@ -19,6 +20,7 @@ Rube Goldberg Challenge:
  	- shows object and the name/description of object near controller, can instantiate by placing or grabbing
  5. [ ] 5. set special grab rules for rube goldberg objects
  	- can grab but cannot throw. on release, must stay in place
+ 	- change this in GrabReleaseActions: can create function that determines when objects need to be placed or thrown based on info sent in
  6. [ ] 6. gameplay!
  	- create collectible that ball must touch in order to win
  	- reenable collectible on ball touching floor
