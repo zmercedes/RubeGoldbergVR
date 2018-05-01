@@ -17,6 +17,10 @@ public class LeftControllerInput : MonoBehaviour {
 	private Vector3 teleportLocation;
 	private GameObject player;
 
+	// actions
+	public event Action<Collider, SteamVR_Controller.Device, Transform> GrabAction;
+	public event Action<Collider, SteamVR_Controller.Device> ReleaseAction;
+
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
 		arcRenderer = arc.GetComponent<ArcRenderer>();
@@ -43,31 +47,13 @@ public class LeftControllerInput : MonoBehaviour {
 			Debug.Log("left touched!");
 	}
 
-	public float throwForce = 1.5f;
-
 	void OnTriggerStay(Collider col){
 		if(col.gameObject.CompareTag("throwable")){
 			if(controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip)){ 
-				ThrowObject(col);
+				ReleaseAction(col, controller);
 			} else if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip)){
-				GrabObject(col);
+				GrabAction(col, controller, transform);
 			}
 		}
-	}
-
-	void GrabObject(Collider coll){
-		coll.transform.SetParent(gameObject.transform);     // make controller parent
-		coll.GetComponent<Rigidbody>().isKinematic = true;  // turn off physics
-		controller.TriggerHapticPulse(2000);				// vibrate controller
-		Debug.Log("Grabbing object!");
-	}
-
-	void ThrowObject(Collider coll){
-		coll.transform.SetParent(null);
-		Rigidbody rigidBody = coll.GetComponent<Rigidbody>();
-		rigidBody.isKinematic = false;
-		rigidBody.velocity = controller.velocity * throwForce;
-		rigidBody.angularVelocity = controller.angularVelocity;
-		Debug.Log("Released object!");
 	}
 }
