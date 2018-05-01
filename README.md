@@ -4,10 +4,11 @@ Rube Goldberg Challenge:
  1. [x] 1. add teleportation
  	- reworked arc renderer serveral times, now uses parabolic raycaster to determine time to target,
  	  then renders an arc.
- 2. [x] 2. add object grabbing/throwing -> _**needs polish**_
+ 2. [x] 2. add object grabbing/throwing 
+ 	- can grab/throw ball. 
  3. [ ] 3. create rube goldberg objects
  	- try different geometries, colors, physics functions
- 4. [ ] 4. create object menu -> _**added, needs polish**_
+ 4. [ ] 4. create object menu -> _**added, needs work**_
  	- attaches to right hand, appears on touchpad press
  5. [ ] 5. set special grab rules for rube goldberg objects
  	- can grab but cannot throw. on release, must stay in place
@@ -23,6 +24,7 @@ Rube Goldberg Challenge:
  	   level, can vary per level
  7. [ ] 7. final polish!
  	- rework the aimer object to show position above ground
+ 	- highlight objects when they're within grab range
  	- create instruction UI
  	- make environment nice
  	- runs at 90fps
@@ -34,4 +36,4 @@ Rube Goldberg Challenge:
     - rube goldberg item picker/generator (touchpad)
  
  Left Hand Actions:
-     touchpad activates teleportation
+    - touchpad activates teleportation
