@@ -4,7 +4,7 @@ Rube Goldberg Challenge:
  	- left hand activates arc on tp press that shows teleport point at the end
  	- right hand activates object menu for object placing
  1. [x] 1. add teleportation
- 	- arc erupts from controller tip which connects to a target at the other end, denotes teleport point
+ 	- arc erupts from controller tip which connects to a target at the other end, denotes teleport target
  	- reworked arc renderer serveral times, now uses parabolic raycaster to determine time to target,
  	  then renders an arc.
  2. [x] 2. add object grabbing/throwing 
@@ -32,6 +32,7 @@ Rube Goldberg Challenge:
  7. [ ] 7. final polish!
  	- rework the aimer object to show position above ground
  	- highlight objects when they're within grab range
+ 	- deleting objects
  	- create instruction UI
  	- make environment nice
  	- runs at 90fps
