@@ -19,7 +19,7 @@ public class LeftControllerInput : MonoBehaviour {
 
 	// actions
 	public event Action<Collider, SteamVR_Controller.Device, Transform> GrabAction;
-	public event Action<Collider, SteamVR_Controller.Device> ReleaseAction;
+	public event Action<Collider, SteamVR_Controller.Device, bool> ReleaseAction;
 
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -48,12 +48,16 @@ public class LeftControllerInput : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider col){
-		if(col.gameObject.CompareTag("throwable")){
-			if(controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip)){ 
-				ReleaseAction(col, controller);
-			} else if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip)){
+		if(col.gameObject.CompareTag("grab")){
+			if(controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
+				ReleaseAction(col, controller, false);
+			else if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
 				GrabAction(col, controller, transform);
-			}
+		} else if(col.gameObject.CompareTag("place")){
+			if(controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
+				ReleaseAction(col, controller, true);
+			else if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
+				GrabAction(col, controller, transform);
 		}
 	}
 }
