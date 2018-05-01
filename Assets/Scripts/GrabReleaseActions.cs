@@ -16,24 +16,22 @@ public class GrabReleaseActions : MonoBehaviour {
 		
 		leftInput.GrabAction += GrabObject;
 		rightInput.GrabAction += GrabObject;
-		leftInput.ReleaseAction += PlaceOrThrow;
-		rightInput.ReleaseAction += PlaceOrThrow;
+		leftInput.ReleaseAction += ReleaseActionPicker;
+		rightInput.ReleaseAction += ReleaseActionPicker;
 	}
 	
-	void PlaceorThrow(Collider col, SteamVR_Controller.Device controller, string tag){
+	void ReleaseActionPicker(Collider col, SteamVR_Controller.Device controller, string tag){
 		switch (tag){
-			case 1:
-			break;
-          case "place:
-				Console.WriteLine("Case 2");
+			case "place":
+				PlaceObject(col,controller);
 				break;
-          default:
-              Console.WriteLine("Default case");
-              break;
-      }
-			PlaceObject(col, controller);
-		else
-			ThrowObject(col, controller);
+			case "throw":
+				ThrowObject(col,controller);
+				break;
+			default:
+				Debug.Log("Nothing to grab here!");
+				break;
+		}
 	}
 	
 	void GrabObject(Collider coll, SteamVR_Controller.Device controller, Transform t){
