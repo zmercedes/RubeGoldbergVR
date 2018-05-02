@@ -32,6 +32,7 @@ Rube Goldberg Challenge:
  	- can limit the number of objects that can be placed in a 
  	   level, can vary per level
  7. [ ] 7. final polish!
+ 	- rework left/right controller inputs to inherit from a single controller input (more oop)
  	- rework the aimer object to show position above ground
  	- highlight objects when they're within grab range
  	- deleting objects

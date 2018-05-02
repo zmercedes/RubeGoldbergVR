@@ -9,21 +9,22 @@ using UnityEngine;
 
 public class GrabReleaseActions : MonoBehaviour {
 
+	// controller input references
 	LeftControllerInput leftInput;
 	RightControllerInput rightInput;
 
 	public float throwForce = 1.5f;
 
 	void Awake () {
-		leftInput = GameObject.Find("Controller (left)").GetComponent<LeftControllerInput>();
-		rightInput = GameObject.Find("Controller (right)").GetComponent<RightControllerInput>();
+		leftInput = transform.GetChild(0).GetComponent<LeftControllerInput>();
+		rightInput = transform.GetChild(1).GetComponent<RightControllerInput>();
 		
 		leftInput.GrabAction += GrabObject;
 		rightInput.GrabAction += GrabObject;
 		leftInput.ReleaseAction += ReleaseActionPicker;
 		rightInput.ReleaseAction += ReleaseActionPicker;
 	}
-	
+
 	// does appropriate release action based on gameobject tag
 	void ReleaseActionPicker(Collider col, SteamVR_Controller.Device controller, string tag){
 		switch (tag){
