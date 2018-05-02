@@ -8,6 +8,10 @@ public class ControllerInput : MonoBehaviour {
 	private SteamVR_Controller.Device controller;
 	private SteamVR_TrackedObject trackedObj;
 	
+	// actions
+	public event Action<Collider, SteamVR_Controller.Device, Transform> GrabAction;
+	public event Action<Collider, SteamVR_Controller.Device, string> ReleaseAction;
+	
 	string[] grabableObjects = {"place","throw"};
 
 	void OnTriggerStay(Collider col){
