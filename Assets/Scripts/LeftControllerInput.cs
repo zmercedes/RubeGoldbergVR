@@ -3,15 +3,12 @@
  */
 using UnityEngine;
 using System;
-using System.Linq;
 
-public class LeftControllerInput : ControllerInput, MonoBehaviour {
+public class LeftControllerInput : ControllerInput {
 
 	// teleporting
 	public GameObject arc;
 	private ArcRenderer arcRenderer;
-	private LayerMask teleMask;
-	private Vector3 teleportLocation;
 	private GameObject player;
 
 	void Awake () {
@@ -41,14 +38,5 @@ public class LeftControllerInput : ControllerInput, MonoBehaviour {
 		}
 		arcRenderer.aimerObject.SetActive(false);
 		arc.SetActive(false);
-	}
-
-	void OnTriggerStay(Collider col){
-		if(grabableObjects.Contains(col.gameObject.tag)){
-			if(controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
-				ReleaseActionPicker(col, controller, col.gameObject.tag);
-			else if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-				GrabObject(col, controller, transform);
-		}
 	}
 }
