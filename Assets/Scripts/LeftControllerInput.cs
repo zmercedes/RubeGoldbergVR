@@ -5,11 +5,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-public class LeftControllerInput : MonoBehaviour {
-
-	// controller references
-	private SteamVR_Controller.Device controller;
-	private SteamVR_TrackedObject trackedObj;
+public class LeftControllerInput : ControllerInput, MonoBehaviour {
 
 	// teleporting
 	public GameObject arc;
@@ -17,10 +13,6 @@ public class LeftControllerInput : MonoBehaviour {
 	private LayerMask teleMask;
 	private Vector3 teleportLocation;
 	private GameObject player;
-
-	// actions
-	public event Action<Collider, SteamVR_Controller.Device, Transform> GrabAction;
-	public event Action<Collider, SteamVR_Controller.Device, string> ReleaseAction;
 
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -51,14 +43,12 @@ public class LeftControllerInput : MonoBehaviour {
 		arc.SetActive(false);
 	}
 
-	string[] grabableObjects = {"place","throw"};
-
 	void OnTriggerStay(Collider col){
 		if(grabableObjects.Contains(col.gameObject.tag)){
 			if(controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
-				ReleaseAction(col, controller, col.gameObject.tag);
+				ReleaseActionPicker(col, controller, col.gameObject.tag);
 			else if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-				GrabAction(col, controller, transform);
+				GrabObject(col, controller, transform);
 		}
 	}
 }
