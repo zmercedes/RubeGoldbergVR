@@ -18,7 +18,7 @@ Rube Goldberg Challenge:
  4. [ ] 4. create object menu -> _**added, needs work**_
  	- attaches to right hand, appears on touchpad press
  	- shows object and the name/description of object near controller, can instantiate by placing or grabbing
- 5. [ ] 5. set special grab rules for rube goldberg objects
+ 5. [ ] 5. set special grab rules for rube goldberg objects -> _**added, needs testing**_
  	- can grab but cannot throw. on release, must stay in place
  	- change this in GrabReleaseActions: can create function that determines when objects need to be placed or thrown based on info sent in
  6. [ ] 6. gameplay!
