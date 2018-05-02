@@ -16,8 +16,8 @@ public class ControllerInput : MonoBehaviour {
 
 	protected float throwForce = 1.5f;
 
-	protected void ReleaseActionPicker(Collider col, string tag){
-		switch (tag){
+	protected void ReleaseAction(Collider col){
+		switch (col.gameObject.tag){
 			case "place":
 				PlaceObject(col);
 				break;
@@ -53,7 +53,7 @@ public class ControllerInput : MonoBehaviour {
 	void OnTriggerStay(Collider col){
 		if(grabableObjects.Contains(col.gameObject.tag)){
 			if(controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
-				ReleaseActionPicker(col, col.gameObject.tag);
+				ReleaseAction(col);
 			else if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
 				GrabObject(col, transform);
 		}
