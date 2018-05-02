@@ -3,16 +3,16 @@ Rube Goldberg Challenge:
  0. [x] 0. set up hand control scripts
  	- left hand activates arc on tp press that shows teleport point at the end
  	- right hand activates object menu for object placing
+ 	- added ControllerInput base class to reduce duplicate code across both hands
  1. [x] 1. add teleportation
  	- arc erupts from controller tip which connects to a target at the other end, denotes teleport target
- 	- reworked arc renderer serveral times, now uses parabolic raycaster to determine time to target,
- 	  then renders an arc.
+ 	- reworked arc renderer serveral times, now uses parabolic raycaster to determine time to target, then renders an arc.
  2. [x] 2. add object grabbing/throwing 
- 	- can grab/throw ball. 
- 	- reworked grabbing/throwing using the observer pattern, various release actions defined
+ 	- can grab/throw ball.
+ 	- reworked grabbing/throwing using inheritance, various release actions defined
  3. [ ] 3. create rube goldberg objects
  	- metal plank - plank with side rails, can't drop ball
- 	- teleport target - place origin target, place destination target, moves ball from origin -> destination
+ 	- teleport target - place origin target, place destination target, moves ball from origin to destination
  	- trampoline - bounces ball
  	- wood plank - plank without side rails for harder difficulty
  4. [ ] 4. create object menu -> _**added, needs work**_
@@ -39,12 +39,3 @@ Rube Goldberg Challenge:
  	- create instruction UI
  	- make environment nice
  	- runs at 90fps
-
- Both Hand Actions:
-    - Grab objects
-
- Right Hand Actions:
-    - rube goldberg item picker/generator (touchpad)
- 
- Left Hand Actions:
-    - touchpad activates teleportation
