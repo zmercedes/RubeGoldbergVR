@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 33299722839156842}
   - component: {fileID: 23979425848421222}
   m_Layer: 0
-  m_Name: Metal_Plank_WE
+  m_Name: Metal_Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4697372418354130
 Transform:

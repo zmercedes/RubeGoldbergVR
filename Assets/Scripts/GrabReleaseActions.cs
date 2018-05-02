@@ -35,7 +35,7 @@ public class GrabReleaseActions : MonoBehaviour {
 				ThrowObject(col,controller);
 				break;
 			default:
-				Debug.Log("Nothing to grab here!");
+				Debug.Log("Nothing here!");
 				break;
 		}
 	}
@@ -59,6 +59,5 @@ public class GrabReleaseActions : MonoBehaviour {
 	void PlaceObject(Collider col, SteamVR_Controller.Device controller){
 		col.transform.SetParent(null);
 		Rigidbody rigidBody = col.GetComponent<Rigidbody>();
-		rigidBody.isKinematic = false;
 	}
 }
