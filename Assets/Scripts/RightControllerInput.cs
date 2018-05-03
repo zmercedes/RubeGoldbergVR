@@ -2,7 +2,6 @@
  * Right Controller Input Manager
  */
 using UnityEngine;
-using System;
 
 public class RightControllerInput : ControllerInput {
 

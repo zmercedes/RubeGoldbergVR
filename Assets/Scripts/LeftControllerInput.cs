@@ -2,7 +2,6 @@
  * Left Controller Input Manager
  */
 using UnityEngine;
-using System;
 
 public class LeftControllerInput : ControllerInput {
 
