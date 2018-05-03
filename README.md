@@ -21,8 +21,7 @@ Rube Goldberg Challenge:
  	- shows object and the name/description of object near controller,
   - can instantiate object by pressing trigger
  5. [x] 5. set special grab(/release) rules for rube goldberg objects
- 	- grab on grip press
-  - on grip release, stays in place
+ 	- grab on grip press. on grip release, stays in place
  	- grab/release actions are now in the ControllerInput base class. 
  6. [ ] 6. gameplay!
  	- create collectible that ball must touch in order to win
