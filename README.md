@@ -18,11 +18,9 @@ Rube Goldberg Challenge:
  	- wood plank - plank without side rails for harder difficulty -> created, works
  4. [ ] 4. create object menu -> _**added, needs work**_
  	- attaches to right hand, appears/closes on touchpad press
- 	- shows object and the name/description of object near controller
-  - can instantiate object by pressing trigger
+ 	- shows object and the name/description of object near controller. can instantiate object by pressing trigger
  5. [x] 5. set special grab(/release) rules for rube goldberg objects
- 	- grab on grip press 
-  - on grip release, stays in place
+ 	- grab on grip press. on grip release, stays in place
  	- grab/release actions are now in the ControllerInput base class. 
  6. [ ] 6. gameplay!
  	- create collectible that ball must touch in order to win
