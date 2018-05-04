@@ -31,11 +31,11 @@ public class LeftControllerInput : ControllerInput {
 
 	// teleport code
 	void Teleport(){
-		if(arcRenderer.aimerObject.activeSelf){
-			player.transform.position = arcRenderer.aimerObject.transform.position;
+		if(arcRenderer.targetObject.activeSelf){
+			player.transform.position = arcRenderer.targetObject.transform.position;
 			print("teleported to " + transform.position);
 		}
-		arcRenderer.aimerObject.SetActive(false);
+		arcRenderer.targetObject.SetActive(false);
 		arc.SetActive(false);
 	}
 }

@@ -13,8 +13,8 @@ public class ArcRenderer : MonoBehaviour {
 	private Transform controller;
 	private float lastRotation;
 
-	// teleport aimer object
-	public GameObject aimerObject;
+	// teleport target object
+	public GameObject targetObject;
 
 	// arc information
 	public float meshWidth;
@@ -54,11 +54,11 @@ public class ArcRenderer : MonoBehaviour {
 			lastRotation = controller.eulerAngles.y;
 		}
 
-		// disable aimer object and arc when tilting above 45 degrees and below -90 degrees (max and min teleport distances)
+		// disable target object and arc when tilting above 45 degrees and below -90 degrees (max and min teleport distances)
 		if(controller.eulerAngles.x < 300 && controller.eulerAngles.x > 90){
 			arcMat.color = colorIndicators[1];
 			timeToTarget = 0.01f;
-			aimerObject.SetActive(false);
+			targetObject.SetActive(false);
 		} else {
 			arcMat.color = colorIndicators[0];
 			timeToTarget = time;
@@ -117,12 +117,12 @@ public class ArcRenderer : MonoBehaviour {
 			int mask = 1 << 8;
 			
 			if(Physics.Raycast(previousDrawPoint, difference.normalized, out hit, length, mask)){
-				aimerObject.SetActive(true);
+				targetObject.SetActive(true);
 				timeToTarget = simulationTime + (1/(float)resolution*time)*(hit.distance/length);
 				if(hit.collider.tag == "platform")
-					aimerObject.transform.position = hit.transform.position;
+					targetObject.transform.position = hit.transform.position;
 				else
-					aimerObject.transform.position = hit.point;
+					targetObject.transform.position = hit.point;
 
 				break;
 			}
