@@ -33,7 +33,7 @@ Rube Goldberg Challenge:
  	- can limit the number of objects that can be placed in a level, can vary per level
  7. [ ] 7. final polish!
  	- set appropriate scale and physics on objects
- 	- rework the aimer object to show pointer above target position
+ 	- rework the target object to show pointer above target position
  	- highlight objects when they're within grab range
  	- deleting objects
  	- create instruction UI
