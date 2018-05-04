@@ -11,14 +11,15 @@ Rube Goldberg Challenge:
  2. [x] 2. add object grabbing/throwing 
  	- can grab/throw ball on grip press/release.
  	- reworked grabbing/throwing using inheritance, various release actions defined
- 3. [ ] 3. create rube goldberg objects
+ 3. [x] 3. create rube goldberg objects
  	- metal plank - plank with side rails, can't drop ball -> created, works
- 	- teleport target - place origin target, place destination target, moves ball from origin to destination
- 	- trampoline - bounces ball -> created, grabable, needs to bounce things
+ 	- teleport target - place origin target, place destination target, moves ball from origin to destination -> created, need to set up mechanic and spawning
+ 	- trampoline - bounces ball -> created, works as intended
  	- wood plank - plank without side rails for harder difficulty -> created, works
- 4. [ ] 4. create object menu -> _**added, needs work**_
+ 4. [x] 4. create object menu
  	- attaches to right hand, appears/closes on touchpad press
  	- shows object and the name/description of object near controller
+ 	- scroll through objects by pressing left or right on trackpad
  	- can instantiate object by pressing trigger
  5. [x] 5. set special grab(/release) rules for rube goldberg objects
  	- grab on grip press. on grip release, stays in place
@@ -31,7 +32,7 @@ Rube Goldberg Challenge:
  	- 4 different levels
  	- can limit the number of objects that can be placed in a level, can vary per level
  7. [ ] 7. final polish!
- 	- set appropriate scale on objects
+ 	- set appropriate scale and physics on objects
  	- rework the aimer object to show pointer above target position
  	- highlight objects when they're within grab range
  	- deleting objects

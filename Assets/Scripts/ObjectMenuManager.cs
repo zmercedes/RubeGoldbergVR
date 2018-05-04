@@ -4,31 +4,41 @@ using UnityEngine;
 
 public class ObjectMenuManager : MonoBehaviour {
 
-	public List<GameObject> objectList;
-	public List<GameObject> objectPrefabList;
+	private GameObject[] objects;
+	public GameObject[] objectPrefabs;
+	public int[] quantityOfObject;
 
 	int currentObject = 0;
 
 	void Awake () {
-		foreach(Transform child in transform)
-			objectList.Add(child.gameObject);
+		objects = new GameObject[transform.childCount];
+		for(int i = 0; i < transform.childCount; i++)
+			objects[i] = transform.GetChild(i).gameObject;
 	}
 
 	public void MenuLeft(){
-		objectList[currentObject].SetActive(false);
+		objects[currentObject].SetActive(false);
 		currentObject--;
-		currentObject = (currentObject < 0) ? objectList.Count - 1 : currentObject;
-		objectList[currentObject].SetActive(true);
+		currentObject = (currentObject < 0) ? objects.Length - 1 : currentObject;
+		objects[currentObject].SetActive(true);
 	}
 
 	public void MenuRight(){
-		objectList[currentObject].SetActive(false);
+		objects[currentObject].SetActive(false);
 		currentObject++;
-		currentObject = (currentObject > objectList.Count - 1) ? 0 : currentObject;
-		objectList[currentObject].SetActive(true);
+		currentObject = (currentObject > objects.Length - 1) ? 0 : currentObject;
+		objects[currentObject].SetActive(true);
 	}
 
 	public void SpawnCurrentObject(){
-		Instantiate(objectPrefabList[currentObject], objectList[currentObject].transform.position, objectList[currentObject].transform.rotation);
+		// check quantity to see if any more can be spawned
+		if(quantityOfObject[currentObject] > 0){
+			Instantiate(objectPrefabs[currentObject], objects[currentObject].transform.position, objects[currentObject].transform.rotation);
+			quantityOfObject[currentObject]--;
+		}	
+	}
+
+	public void SpawnTeleporters(){
+		// teleporters will be spawned using this code
 	}
 }
