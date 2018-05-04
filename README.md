@@ -41,4 +41,4 @@ Rube Goldberg Challenge! Zoilo Mercedes
  	- runs at 90fps
 
 _**About this Project**_
-This project took about 2-3 weeks worth of work to complete. I really enjoyed learning SteamVR and hooking up various functions to the controllers. I found a couple of things very challenging while creating this project; among these were figuring out how to best organize the code I was writing, and implementing the specific teleportation mechanic I desired .
+This project took about 2-3 weeks worth of work to complete. I really enjoyed learning SteamVR and hooking up various functions to the controllers. I found a couple of things very challenging while creating this project; among these were figuring out how to best organize the code I was writing, and implementing the specific teleportation mechanic I desired . I ran and tested this environment using the HTC Vive.
