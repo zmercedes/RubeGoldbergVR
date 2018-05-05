@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/* Zoilo Mercedes
+ * Object Menu Manager Manager
+ * Activates on right touch pad press, creates objects on trigger press
+ */
+using UnityEngine;
 
 public class ObjectMenuManager : MonoBehaviour {
 

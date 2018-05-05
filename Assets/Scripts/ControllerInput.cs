@@ -2,7 +2,6 @@
  * Controller Input Base Class
  */
 using UnityEngine;
-using System;
 using System.Linq;
 
 public class ControllerInput : MonoBehaviour {
