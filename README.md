@@ -1,4 +1,5 @@
-Rube Goldberg Challenge! Zoilo Mercedes
+# Rube Goldberg Challenge! 
+Zoilo Mercedes
 
  0. [x] 0. set up hand control scripts
  	- left hand activates arc on tp press that shows teleport point at the end
