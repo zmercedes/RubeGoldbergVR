@@ -28,7 +28,7 @@ public class ControllerInput : MonoBehaviour {
 				break;
 		}
 	}
-	
+
 	protected void GrabObject(Collider col, Transform t){
 		col.transform.SetParent(t);                        // make controller parent
 		col.GetComponent<Rigidbody>().isKinematic = true;  // turn off physics
