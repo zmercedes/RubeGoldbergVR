@@ -6,16 +6,16 @@ using System.Linq;
 
 public class ControllerInput : MonoBehaviour {
 
-	// controller references
+	// controller references, set in derived classes
 	protected SteamVR_Controller.Device controller;
 	protected SteamVR_TrackedObject trackedObj;
 
 	// objects that can be grabbed 
-	protected string[] grabableObjects = {"place","throw"};
+	string[] grabableObjects = {"place","throw"};
 
-	protected float throwForce = 1.5f;
+	float throwForce = 1.5f;
 
-	protected void ReleaseAction(Collider col){
+	void ReleaseAction(Collider col){
 		switch (col.gameObject.tag){
 			case "place":
 				PlaceObject(col);
@@ -29,14 +29,14 @@ public class ControllerInput : MonoBehaviour {
 		}
 	}
 
-	protected void GrabObject(Collider col, Transform t){
+	void GrabObject(Collider col, Transform t){
 		col.transform.SetParent(t);                        // make controller parent
 		col.GetComponent<Rigidbody>().isKinematic = true;  // turn off physics
 		controller.TriggerHapticPulse(2000);               // vibrate controller
 		Debug.Log("Grabbing object!");
 	}
 
-	protected void ThrowObject(Collider col){
+	void ThrowObject(Collider col){
 		col.transform.SetParent(null);
 		Rigidbody rigidBody = col.GetComponent<Rigidbody>();
 		rigidBody.isKinematic = false;
@@ -45,7 +45,7 @@ public class ControllerInput : MonoBehaviour {
 		Debug.Log("Released object!");
 	}
 
-	protected void PlaceObject(Collider col){
+	void PlaceObject(Collider col){
 		col.transform.SetParent(null);
 	}
 
