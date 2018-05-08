@@ -15,17 +15,20 @@ public class BallActions : MonoBehaviour {
 	}
 	
 	void Update () {
+		// when parent != null, ball is being grabbed
 		isGrabbed = transform.parent != null;
-	
-		CheatCheck();
+		
+		if(isGrabbed)
+			CheatCheck();
 	}
 
 	void CheatCheck(){
-		if(isGrabbed){
-			RaycastHit hit;
-			if(Physics.Raycast(transform.position, Vector3.down, out hit, 15f))
-				cheating = hit.collider.tag != "platform";
-		}
+		RaycastHit hit;
+		int mask = 1 << 8;
+
+		// if collider below is not "platform", isCheating 
+		if(Physics.Raycast(transform.position, Vector3.down, out hit, 15f, mask))
+			cheating = hit.collider.tag != "platform";
 	}
 
 	void Reset(){
