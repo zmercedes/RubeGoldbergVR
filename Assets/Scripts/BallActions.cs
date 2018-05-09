@@ -3,15 +3,18 @@
  * Checks for cheating, collides with collectibles
  */
 using UnityEngine;
+using System;
 
 public class BallActions : MonoBehaviour {
 
 	Vector3 startPosition;
 	bool cheating = false;
 	bool isGrabbed = false;
+	public event Action reset;
 
 	void Awake () {
 		startPosition = transform.position;
+		reset += Reset;
 	}
 	
 	void Update () {
@@ -37,8 +40,12 @@ public class BallActions : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
-		if(cheating)
-			Reset();
+		if(col.gameObject.tag == "teleport" || cheating)
+			reset();
+	}
 
+	void OnTriggerEnter(Collider col){
+		if(col.tag == "collect")
+			Destroy(col.gameObject);
 	}
 }

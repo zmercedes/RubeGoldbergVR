@@ -9,6 +9,7 @@ TagManager:
   - platform
   - throw
   - place
+  - collect
   layers:
   - Default
   - TransparentFX
