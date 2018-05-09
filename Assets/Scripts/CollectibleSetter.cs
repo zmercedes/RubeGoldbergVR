@@ -11,14 +11,17 @@ public class CollectibleSetter : MonoBehaviour {
 
 	void Awake () {
 		total = transform.childCount;
-		FindObjectOfType<BallActions>().reset += Reset;
 		positions = new Vector3[total];
 		for(int i = 0; i < total; i++){
 			positions[i] = transform.GetChild(i).position;
 		}
 	}
 
-	void Reset(){
+	public bool Collected(){
+		return transform.childCount == 0;
+	}
+
+	public void Reset(){
 		if(transform.childCount < total){
 			foreach(Transform child in transform)
 				Destroy(child.gameObject);
@@ -27,5 +30,4 @@ public class CollectibleSetter : MonoBehaviour {
 				Instantiate(collectible, position, Quaternion.identity, transform);
 		}
 	}
-	
 }

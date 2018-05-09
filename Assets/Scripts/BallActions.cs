@@ -10,11 +10,11 @@ public class BallActions : MonoBehaviour {
 	Vector3 startPosition;
 	bool cheating = false;
 	bool isGrabbed = false;
-	public event Action reset;
+	public CollectibleSetter collectibles;
+	public event Action winCon;
 
 	void Awake () {
 		startPosition = transform.position;
-		reset += Reset;
 	}
 	
 	void Update () {
@@ -36,12 +36,16 @@ public class BallActions : MonoBehaviour {
 
 	void Reset(){
 		transform.position = startPosition;
-		cheating = false; 
+		collectibles.Reset();
+		cheating = false;
 	}
 
 	void OnCollisionEnter(Collision col){
 		if(col.gameObject.tag == "teleport" || cheating)
-			reset();
+			Reset();
+
+		if(col.gameObject.tag == "target" && collectibles.Collected())
+			winCon();
 	}
 
 	void OnTriggerEnter(Collider col){

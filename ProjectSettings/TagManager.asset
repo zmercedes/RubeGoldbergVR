@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - teleport
-  - ball
   - platform
   - throw
   - place
   - collect
+  - target
   layers:
   - Default
   - TransparentFX
