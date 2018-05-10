@@ -25,7 +25,7 @@ Zoilo Mercedes
  5. [x] 5. set special grab(/release) rules for rube goldberg objects
  	- grab on grip press. on grip release, stays in place
  	- grab/release actions are now in the ControllerInput base class. 
- 6. [ ] 6. gameplay!
+ 6. [x] 6. gameplay!
  	- [x] - create collectible that ball must touch in order to win
  	- [x] - reenable collectible on ball touching floor
  	- [x] - create goal that loads next level on ball hitting it after having collected all collectibles -> _**acts appropriately, must finish ui to move to next level**_
