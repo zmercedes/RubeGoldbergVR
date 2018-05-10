@@ -118,7 +118,7 @@ public class ArcRenderer : MonoBehaviour {
 			
 			if(Physics.Raycast(previousDrawPoint, difference.normalized, out hit, length, mask)){
 				targetObject.SetActive(true);
-				timeToTarget = simulationTime + (1/(float)resolution*time)*(hit.distance/length);
+				timeToTarget = simulationTime;
 				if(hit.collider.tag == "platform")
 					targetObject.transform.position = hit.transform.position;
 				else
