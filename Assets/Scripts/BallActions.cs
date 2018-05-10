@@ -10,10 +10,14 @@ public class BallActions : MonoBehaviour {
 	Vector3 startPosition;
 	bool cheating = false;
 	bool isGrabbed = false;
+	Rigidbody rigidBody;
+	public float maxAngVel;
 	public CollectibleSetter collectibles;
 	public event Action winCon;
 
 	void Awake () {
+		rigidBody = GetComponent<Rigidbody>();
+		rigidBody.maxAngularVelocity = maxAngVel;
 		startPosition = transform.position;
 	}
 	
@@ -35,9 +39,15 @@ public class BallActions : MonoBehaviour {
 	}
 
 	void Reset(){
+		ResetVelocity();
 		transform.position = startPosition;
 		collectibles.Reset();
 		cheating = false;
+	}
+
+	void ResetVelocity(){
+		rigidBody.velocity = Vector3.zero;
+		rigidBody.angularVelocity = Vector3.zero;
 	}
 
 	void OnCollisionEnter(Collision col){
@@ -45,9 +55,10 @@ public class BallActions : MonoBehaviour {
 			Reset();
 
 		if(col.gameObject.tag == "target"){
-			if(collectibles.Collected())
+			if(collectibles.Collected()){
+				ResetVelocity();
 				winCon();
-			else
+			} else
 				Reset();
 		}	
 	}
