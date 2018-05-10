@@ -44,8 +44,12 @@ public class BallActions : MonoBehaviour {
 		if(col.gameObject.tag == "teleport" || cheating)
 			Reset();
 
-		if(col.gameObject.tag == "target" && collectibles.Collected())
-			winCon();
+		if(col.gameObject.tag == "target"){
+			if(collectibles.Collected())
+				winCon();
+			else
+				Reset();
+		}	
 	}
 
 	void OnTriggerEnter(Collider col){
