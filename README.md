@@ -14,7 +14,7 @@ Zoilo Mercedes
  	- reworked grabbing/throwing using inheritance, various release actions defined
  3. [x] 3. create rube goldberg objects
  	- metal plank - plank with side rails, can't drop ball -> created, works
- 	- teleport target - place origin target, place destination target, moves ball from origin to destination -> created, need to set up mechanic and spawning
+ 	- teleport target - place origin target, place destination target, moves ball from origin to destination -> _**created, need to set up mechanic and spawning**_
  	- trampoline - bounces ball -> created, works as intended
  	- wood plank - plank without side rails for harder difficulty -> created, works
  4. [x] 4. create object menu
@@ -28,12 +28,12 @@ Zoilo Mercedes
  6. [ ] 6. gameplay!
  	- [x] - create collectible that ball must touch in order to win
  	- [x] - reenable collectible on ball touching floor
- 	- [ ] - create goal that loads next level on ball hitting it after having collected all collectibles
+ 	- [x] - create goal that loads next level on ball hitting it after having collected all collectibles -> _**acts appropriately, must finish ui to move to next level**_
  	- [x] - create anti cheating mechanics: the ball must be thrown from initial platform area in order to not trigger this mechanic
- 	- [ ] - 4 different levels
  	- [x] - can limit the number of objects that can be placed in a level, can vary per level
  7. [ ] 7. final polish!
- 	- [ ] - set appropriate scale and physics on objects
+ 	- [ ] - 4 different levels
+ 	- [x] - set appropriate scale and physics on objects
  	- [ ] - rework the target object to show pointer above target position
  	- [ ] - highlight objects when they're within grab range
  	- [ ] - deleting objects
