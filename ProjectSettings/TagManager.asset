@@ -10,6 +10,7 @@ TagManager:
   - place
   - collect
   - target
+  - button
   layers:
   - Default
   - TransparentFX
