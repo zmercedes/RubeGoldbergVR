@@ -34,7 +34,7 @@ Zoilo Mercedes
  7. [ ] 7. final polish!
  	- [x] - set appropriate scale and physics on objects
  	- [x] - create UI
- 	- [ ] - raycast selector for UI
+ 	- [x] - raycast selector for UI
  	- [ ] - level progression
  	- [ ] - 4 different levels
  	- [ ] - rework the target object to show pointer above target position

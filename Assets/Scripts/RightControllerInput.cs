@@ -17,7 +17,12 @@ public class RightControllerInput : ControllerInput {
 
 	void Update () {
 		controller = SteamVR_Controller.Input((int)trackedObj.index);
+		
+		UISelector();
 
+		if(controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
+			Toggler();
+		
 		// right hand functions
 		if(controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
 			Debug.Log("right touched!");

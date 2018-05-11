@@ -19,6 +19,12 @@ public class LeftControllerInput : ControllerInput {
 	void Update (){
 		controller = SteamVR_Controller.Input((int)trackedObj.index);
 
+		UISelector();
+
+		if(controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu)){
+			Toggler();
+		}
+
 		if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && !arc.activeSelf)
 			arc.SetActive(true);
 

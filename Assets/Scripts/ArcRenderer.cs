@@ -23,8 +23,8 @@ public class ArcRenderer : MonoBehaviour {
 	public float timeToTarget;
 	public float speed = 10f;
 	public float g = -18f;
-	public Color[] colorIndicators;
-	private Material arcMat;
+	public Material[] materialIndicators;
+	private Renderer arcRend;
 	private Vector3 velocity;
 
 	void Awake(){
@@ -32,7 +32,7 @@ public class ArcRenderer : MonoBehaviour {
 		controller = transform.parent.GetChild(0);
 
 		// set material reference
-		arcMat = GetComponent<Renderer>().material;
+		arcRend = GetComponent<Renderer>();
 
 		// set mesh components
 		mesh = GetComponent<MeshFilter>().mesh;
@@ -56,11 +56,11 @@ public class ArcRenderer : MonoBehaviour {
 
 		// disable target object and arc when tilting above 45 degrees and below -90 degrees (max and min teleport distances)
 		if(controller.eulerAngles.x < 300 && controller.eulerAngles.x > 90){
-			arcMat.color = colorIndicators[1];
+			arcRend.sharedMaterial = materialIndicators[1];
 			timeToTarget = 0.01f;
 			targetObject.SetActive(false);
 		} else {
-			arcMat.color = colorIndicators[0];
+			arcRend.sharedMaterial = materialIndicators[0];
 			timeToTarget = time;
 		}
 
