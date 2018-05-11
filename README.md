@@ -32,14 +32,14 @@ Zoilo Mercedes
  	- [x] - create anti cheating mechanics: the ball must be thrown from initial platform area in order to not trigger this mechanic
  	- [x] - can limit the number of objects that can be placed in a level, can vary per level
  7. [ ] 7. final polish!
- 	- [ ] - 4 different levels
  	- [x] - set appropriate scale and physics on objects
+ 	- [ ] - create UI -> _**created, needs hook up**_
+ 	- [ ] - 4 different levels
  	- [ ] - rework the target object to show pointer above target position
  	- [ ] - highlight objects when they're within grab range
  	- [ ] - deleting objects
- 	- [ ] - create instruction UI
  	- [ ] - make environment nice
  	- [ ] - runs at 90fps
 
 # About this Project
-This project took about 3-4 weeks worth of work to complete. I really enjoyed learning SteamVR and hooking up various functions to the controllers. I found a couple of things very challenging while creating this project; among these were figuring out how to best organize the code I was writing, and implementing the specific teleportation mechanic I desired. I ran and tested this environment using the HTC Vive.
+This project took about 3-4 weeks worth of work to complete. I really enjoyed learning SteamVR and hooking up various functions to the controllers. I found a couple of things very challenging while creating this project; among these were figuring out how to best organize the code I was writing, and implementing the specific teleportation aim mechanic I desired. I ran and tested this environment using the HTC Vive.
