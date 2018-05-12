@@ -36,7 +36,7 @@ Zoilo Mercedes
  	- [x] - create UI
  	- [x] - raycast selector for UI
  	- [x] - no teleport zones added
- 	- [ ] - level progression
+ 	- [x] - level progression
  	- [ ] - 4 different levels
  	- [ ] - rework the target object to show pointer above target position
  	- [ ] - highlight objects when they're within grab range
