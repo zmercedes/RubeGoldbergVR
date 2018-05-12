@@ -36,7 +36,6 @@ public class ObjectMenuManager : MonoBehaviour {
 			currentObject = (currentObject < 0) ? objects.Length - 1 : currentObject;
 			objects[currentObject].SetActive(true);
 			OMUI.GetChild(currentObject).gameObject.SetActive(true);
-
 		}
 	}
 

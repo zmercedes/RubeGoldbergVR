@@ -55,8 +55,8 @@ public class ArcRenderer : MonoBehaviour {
 			lastRotation = controller.eulerAngles.y;
 		}
 
-		// disable target object and arc when tilting above 60 degrees and below -90 degrees (max and min teleport distances)
-		if(controller.eulerAngles.x < 300 && controller.eulerAngles.x > 90){
+		// disable target object and arc when tilting above 55 degrees and below -90 degrees (max and min teleport distances)
+		if(controller.eulerAngles.x < 305 && controller.eulerAngles.x > 90){
 			valid = false;
 			timeToTarget = 0.01f;
 			targetObject.SetActive(false);
