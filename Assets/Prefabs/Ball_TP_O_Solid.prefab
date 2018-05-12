@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 23880343114347920}
   - component: {fileID: 65780981085957048}
   - component: {fileID: 54980697989037096}
+  - component: {fileID: 114584057601986872}
   m_Layer: 0
-  m_Name: Teleport_Target_O_Solid
-  m_TagString: Untagged
+  m_Name: Ball_TP_O_Solid
+  m_TagString: place
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009112864, y: 0.009112839, z: 0.0010184912}
   m_Center: {x: 0, y: -3.618403e-18, z: 0.0005092449}
+--- !u!114 &114584057601986872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1171354407077664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c52698bedc13e43b8884e2d71a4aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

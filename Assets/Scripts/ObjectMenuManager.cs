@@ -42,13 +42,13 @@ public class ObjectMenuManager : MonoBehaviour {
 
 	public void SpawnObject(){
 		if(multiSpawning){
-			Instantiate(objectPrefabs[currentObject +1], transform.position, objects[currentObject].transform.rotation);
+			Instantiate(objectPrefabs[currentObject +1], objects[currentObject].transform.position, objects[currentObject].transform.rotation);
 			multiSpawning = false;
 			quantityOfObject[currentObject]--;
 		}
 		// check quantity to see if any more can be spawned
 		else if(quantityOfObject[currentObject] > 0){
-			Instantiate(objectPrefabs[currentObject], transform.position, objects[currentObject].transform.rotation);
+			Instantiate(objectPrefabs[currentObject], objects[currentObject].transform.position, objects[currentObject].transform.rotation);
 			
 			MultiSpawnToggle();
 

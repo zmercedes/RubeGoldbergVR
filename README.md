@@ -12,9 +12,9 @@ Zoilo Mercedes
  2. [x] 2. add object grabbing/throwing 
  	- can grab/throw ball on grip press/release.
  	- reworked grabbing/throwing using inheritance, various release actions defined
- 3. [ ] 3. create rube goldberg objects
+ 3. [x] 3. create rube goldberg objects
  	- [x] - metal plank - plank with side rails, can't drop ball
- 	- [ ] - teleport target - place origin target, place destination target, moves ball from origin to destination
+ 	- [x] - teleport target - place origin target, place destination target, moves ball from origin to destination
  	- [x] - trampoline - bounces ball -> created, works as intended
  	- [x] - wood plank - plank without side rails for harder difficulty
  4. [x] 4. create object menu
@@ -35,6 +35,7 @@ Zoilo Mercedes
  	- [x] - set appropriate scale and physics on objects
  	- [x] - create UI
  	- [x] - raycast selector for UI
+ 	- [x] - no teleport zones added
  	- [ ] - level progression
  	- [ ] - 4 different levels
  	- [ ] - rework the target object to show pointer above target position
