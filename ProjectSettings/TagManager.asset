@@ -11,6 +11,7 @@ TagManager:
   - collect
   - target
   - button
+  - nogo
   layers:
   - Default
   - TransparentFX
