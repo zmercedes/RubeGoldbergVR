@@ -6,17 +6,24 @@ using UnityEngine;
 
 public class ObjectMenuManager : MonoBehaviour {
 
+	// object manager ui reference
+	public Transform OMUI;
+
+	// menu object information
 	private GameObject[] objects;
 	public GameObject[] objectPrefabs;
 	public int[] quantityOfObject;
 
-	bool multiSpawning = false;
+	// is the manager currently spawning multiple items?
+	private bool multiSpawning = false;
 
+	// object currently being looked at
 	int currentObject = 0;
 
 	void Awake () {
-		objects = new GameObject[transform.childCount];
-		for(int i = 0; i < transform.childCount; i++)
+		OMUI = transform.GetChild(4).GetChild(1);
+		objects = new GameObject[4];
+		for(int i = 0; i < 4; i++)
 			objects[i] = transform.GetChild(i).gameObject;
 	}
 
@@ -24,9 +31,12 @@ public class ObjectMenuManager : MonoBehaviour {
 	public void MenuLeft(){
 		if(!multiSpawning){
 			objects[currentObject].SetActive(false);
+			OMUI.GetChild(currentObject).gameObject.SetActive(false);
 			currentObject--;
 			currentObject = (currentObject < 0) ? objects.Length - 1 : currentObject;
 			objects[currentObject].SetActive(true);
+			OMUI.GetChild(currentObject).gameObject.SetActive(true);
+
 		}
 	}
 
@@ -34,9 +44,11 @@ public class ObjectMenuManager : MonoBehaviour {
 	public void MenuRight(){
 		if(!multiSpawning){
 			objects[currentObject].SetActive(false);
+			OMUI.GetChild(currentObject).gameObject.SetActive(false);
 			currentObject++;
 			currentObject = (currentObject > objects.Length - 1) ? 0 : currentObject;
 			objects[currentObject].SetActive(true);
+			OMUI.GetChild(currentObject).gameObject.SetActive(true);
 		}
 	}
 
@@ -44,6 +56,8 @@ public class ObjectMenuManager : MonoBehaviour {
 		if(multiSpawning){
 			Instantiate(objectPrefabs[currentObject +1], objects[currentObject].transform.position, objects[currentObject].transform.rotation);
 			multiSpawning = false;
+			OMUI.GetChild(currentObject+1).gameObject.SetActive(false);
+			OMUI.GetChild(currentObject).gameObject.SetActive(true);
 			quantityOfObject[currentObject]--;
 		}
 		// check quantity to see if any more can be spawned
@@ -59,7 +73,10 @@ public class ObjectMenuManager : MonoBehaviour {
 
 	// checks to see if object has more objects to spawn
 	void MultiSpawnToggle(){
-		if(currentObject == 3 && !multiSpawning)
+		if(currentObject == 3 && !multiSpawning){
 			multiSpawning = true;
+			OMUI.GetChild(currentObject).gameObject.SetActive(false);
+			OMUI.GetChild(currentObject +1).gameObject.SetActive(true);
+		}
 	}
 }
