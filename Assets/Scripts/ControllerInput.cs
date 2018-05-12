@@ -1,11 +1,11 @@
 /* Zoilo Mercedes
  * Controller Input Base Class
  */
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using System;
-using System.Linq;
+using UnityEngine;               // unityengine structs 
+using UnityEngine.UI;            // button
+using UnityEngine.EventSystems;  // eventsystem
+using System;                    // Action
+using System.Linq;               // array.Contains
 
 public class ControllerInput : MonoBehaviour {
 
@@ -60,7 +60,6 @@ public class ControllerInput : MonoBehaviour {
 				break;
 		}
 	}
-
 
 	void GrabObject(Collider col, Transform t){
 		col.transform.SetParent(t);                        // make controller parent

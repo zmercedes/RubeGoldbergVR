@@ -1,4 +1,4 @@
-﻿/* Zoilo Mercedes
+/* Zoilo Mercedes
  * Object Menu Manager Manager
  * Activates on right touch pad press, creates objects on trigger press
  */
@@ -10,6 +10,8 @@ public class ObjectMenuManager : MonoBehaviour {
 	public GameObject[] objectPrefabs;
 	public int[] quantityOfObject;
 
+	bool multiSpawning = false;
+
 	int currentObject = 0;
 
 	void Awake () {
@@ -18,29 +20,46 @@ public class ObjectMenuManager : MonoBehaviour {
 			objects[i] = transform.GetChild(i).gameObject;
 	}
 
+	// pages left on menu manager
 	public void MenuLeft(){
-		objects[currentObject].SetActive(false);
-		currentObject--;
-		currentObject = (currentObject < 0) ? objects.Length - 1 : currentObject;
-		objects[currentObject].SetActive(true);
+		if(!multiSpawning){
+			objects[currentObject].SetActive(false);
+			currentObject--;
+			currentObject = (currentObject < 0) ? objects.Length - 1 : currentObject;
+			objects[currentObject].SetActive(true);
+		}
 	}
 
+	// pages right on menu manager
 	public void MenuRight(){
-		objects[currentObject].SetActive(false);
-		currentObject++;
-		currentObject = (currentObject > objects.Length - 1) ? 0 : currentObject;
-		objects[currentObject].SetActive(true);
+		if(!multiSpawning){
+			objects[currentObject].SetActive(false);
+			currentObject++;
+			currentObject = (currentObject > objects.Length - 1) ? 0 : currentObject;
+			objects[currentObject].SetActive(true);
+		}
 	}
 
-	public void SpawnCurrentObject(){
-		// check quantity to see if any more can be spawned
-		if(quantityOfObject[currentObject] > 0){
-			Instantiate(objectPrefabs[currentObject], objects[currentObject].transform.position, objects[currentObject].transform.rotation);
+	public void SpawnObject(){
+		if(multiSpawning){
+			Instantiate(objectPrefabs[currentObject +1], transform.position, objects[currentObject].transform.rotation);
+			multiSpawning = false;
 			quantityOfObject[currentObject]--;
+		}
+		// check quantity to see if any more can be spawned
+		else if(quantityOfObject[currentObject] > 0){
+			Instantiate(objectPrefabs[currentObject], transform.position, objects[currentObject].transform.rotation);
+			
+			MultiSpawnToggle();
+
+			if(!multiSpawning)
+				quantityOfObject[currentObject]--;
 		}	
 	}
 
-	public void SpawnTeleporters(){
-		// teleporters will be spawned using this code
+	// checks to see if object has more objects to spawn
+	void MultiSpawnToggle(){
+		if(currentObject == 3 && !multiSpawning)
+			multiSpawning = true;
 	}
 }

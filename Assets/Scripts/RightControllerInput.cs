@@ -43,7 +43,7 @@ public class RightControllerInput : ControllerInput {
 			}
 
 			if(controller.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
-				omm.SpawnCurrentObject();
+				omm.SpawnObject();
 		}
 	}
 }
