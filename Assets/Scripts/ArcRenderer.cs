@@ -26,7 +26,6 @@ public class ArcRenderer : MonoBehaviour {
 	public Material[] materialIndicators;
 	private Renderer arcRend;
 	private Vector3 velocity;
-	private bool valid;
 
 	void Awake(){
 		// set controller reference
@@ -42,7 +41,7 @@ public class ArcRenderer : MonoBehaviour {
 		lastRotation = controller.eulerAngles.y;
 
 		// sets appropriate rotation for arc
-		transform.Rotate(new Vector3(0f,controller.eulerAngles.y + 90f,0f));
+		transform.Rotate(new Vector3(0f,lastRotation + 90f,0f));
 	}
 
 	void Update(){
@@ -55,13 +54,13 @@ public class ArcRenderer : MonoBehaviour {
 			lastRotation = controller.eulerAngles.y;
 		}
 
-		// disable target object and arc when tilting above 60 degrees and below -90 degrees (max and min teleport distances)
+		// disable target object and arc when tilting above 45 degrees and below -90 degrees (max and min teleport distances)
 		if(controller.eulerAngles.x < 300 && controller.eulerAngles.x > 90){
-			valid = false;
+			arcRend.sharedMaterial = materialIndicators[1];
 			timeToTarget = 0.01f;
 			targetObject.SetActive(false);
 		} else {
-			valid = true;
+			arcRend.sharedMaterial = materialIndicators[0];
 			timeToTarget = time;
 		}
 
@@ -69,7 +68,6 @@ public class ArcRenderer : MonoBehaviour {
 		velocity = controller.forward * speed;
 
 		RenderArc(ArcArray());
-		SetValid();
 	}
 
 	void RenderArc(Vector3[] arcVerts){
@@ -121,10 +119,7 @@ public class ArcRenderer : MonoBehaviour {
 			if(Physics.Raycast(previousDrawPoint, difference.normalized, out hit, length, mask)){
 				targetObject.SetActive(true);
 				timeToTarget = simulationTime;
-				if(hit.collider.tag == "nogo"){
-					targetObject.SetActive(false);
-					valid = false;
-				} else if(hit.collider.tag == "platform")
+				if(hit.collider.tag == "platform")
 					targetObject.transform.position = hit.transform.position;
 				else
 					targetObject.transform.position = hit.point;
@@ -145,10 +140,5 @@ public class ArcRenderer : MonoBehaviour {
 			previousDrawPoint = drawPoint;
 		}
 		return arcArray;
-	}
-
-	void SetValid(){
-		int i = valid ? 0 : 1;
-		arcRend.sharedMaterial = materialIndicators[i];
 	}
 }
