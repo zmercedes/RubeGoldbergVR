@@ -6,27 +6,30 @@ using UnityEngine;
 
 public class UI_Manager : MonoBehaviour {
 
+	// controller references...
+	public ControllerInput left, right;
+
 	// UI points
 	public Transform uInterface;
 	GameObject mainUI;
 	GameObject winUI;
 	int current = 1;
 
-	void Awake () {
+	void Start() {
 		mainUI = uInterface.GetChild(1).gameObject;
 		winUI = uInterface.GetChild(2).gameObject;
 		FindObjectOfType<BallActions>().winCon += OnWin;
-		FindObjectOfType<RightControllerInput>().UItoggle += ToggleUI;
-		FindObjectOfType<LeftControllerInput>().UItoggle += ToggleUI;
+		left.UItoggle += ToggleUI;
+		right.UItoggle += ToggleUI;
+	}
+
+	void ToggleUI(){
+		uInterface.gameObject.SetActive(!uInterface.gameObject.activeSelf);
 	}
 
 	void OnWin(){
 		mainUI.SetActive(false);
 		winUI.SetActive(true);
-	}
-
-	void ToggleUI(){
-		uInterface.gameObject.SetActive(!uInterface.gameObject.activeSelf);
 	}
 
 	public void SetMain(int which){
