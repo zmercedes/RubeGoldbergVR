@@ -12,17 +12,25 @@ public class BallActions : MonoBehaviour {
 	private bool cheating = false;
 	private bool isGrabbed = false;
 	private Rigidbody rigidBody;
+	private bool colliding;
 	public float maxAngVel;
+
+	// collectibles reference
 	public CollectibleSetter collectibles;
 
 	// audio
-	private AudioSource[] sounds;
+	private AudioSource ballRoll;
+	private AudioSource ballLand;
+	private AudioSource starCollect;
 
 	// action taken on meeting win condition
 	public event Action winCon;
 
 	void Awake () {
-		sounds = GetComponents<AudioSource>();
+		AudioSource[] sources = GetComponents<AudioSource>();
+		starCollect = sources[0];
+		ballLand = sources[1];
+		ballRoll = sources[2];
 		rigidBody = GetComponent<Rigidbody>();
 		rigidBody.maxAngularVelocity = maxAngVel;
 		startPosition = transform.position;
@@ -32,8 +40,18 @@ public class BallActions : MonoBehaviour {
 		// when parent != null, ball is being grabbed
 		isGrabbed = transform.parent != null;
 		
+		RollCheck();
+
 		if(isGrabbed)
 			CheatCheck();
+	}
+
+	void RollCheck(){
+		if(rigidBody.angularVelocity.magnitude > 2 && !ballRoll.isPlaying){
+			ballRoll.Play();
+		} else if(rigidBody.angularVelocity.magnitude < 2){
+			ballRoll.Stop();
+		}
 	}
 
 	void CheatCheck(){
@@ -58,8 +76,11 @@ public class BallActions : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
+		colliding = true;
 		if(col.gameObject.tag == "teleport" || cheating)
 			Reset();
+
+		ballLand.Play();
 
 		if(col.gameObject.tag == "target"){
 			if(collectibles.Collected()){
@@ -70,8 +91,15 @@ public class BallActions : MonoBehaviour {
 		}	
 	}
 
+	void OnCollisionExit(){
+		colliding = false;
+		ballRoll.Stop();
+	}
+
 	void OnTriggerEnter(Collider col){
-		if(col.tag == "collect")
+		if(col.tag == "collect"){
+			starCollect.Play();
 			Destroy(col.gameObject);
+		}
 	}
 }
