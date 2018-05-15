@@ -3,6 +3,7 @@
  * Activates on right touch pad press, creates objects on trigger press
  */
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectMenuManager : MonoBehaviour {
 
@@ -23,8 +24,10 @@ public class ObjectMenuManager : MonoBehaviour {
 	void Awake () {
 		OMUI = transform.GetChild(4).GetChild(1);
 		objects = new GameObject[4];
-		for(int i = 0; i < 4; i++)
+		for(int i = 0; i < 4; i++){
 			objects[i] = transform.GetChild(i).gameObject;
+			OMUI.GetChild(i).GetComponent<Text>().text = quantityOfObject[i] + " left";
+		}
 	}
 
 	// pages left on menu manager
@@ -57,7 +60,7 @@ public class ObjectMenuManager : MonoBehaviour {
 			multiSpawning = false;
 			OMUI.GetChild(currentObject+1).gameObject.SetActive(false);
 			OMUI.GetChild(currentObject).gameObject.SetActive(true);
-			quantityOfObject[currentObject]--;
+			QuantityTextUpdate();
 		}
 		// check quantity to see if any more can be spawned
 		else if(quantityOfObject[currentObject] > 0){
@@ -66,8 +69,13 @@ public class ObjectMenuManager : MonoBehaviour {
 			MultiSpawnToggle();
 
 			if(!multiSpawning)
-				quantityOfObject[currentObject]--;
+				QuantityTextUpdate();
 		}	
+	}
+
+	void QuantityTextUpdate(){
+		quantityOfObject[currentObject]--;
+		OMUI.GetChild(currentObject).GetComponent<Text>().text = quantityOfObject[currentObject] + " left";
 	}
 
 	// checks to see if object has more objects to spawn
