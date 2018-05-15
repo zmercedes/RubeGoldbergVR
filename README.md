@@ -38,10 +38,10 @@ Zoilo Mercedes
  	- [x] - no teleport zones added
  	- [x] - level progression
  	- [x] - add sound 	
- 	- [ ] - rework the target object to show pointer above target position
+ 	- [x] - rework the target object to show pointer above target position
  	- [ ] - 4 different levels
- 	- [ ] - make environment nice
- 	- [ ] - runs at 90fps
+ 	- [x] - make environment nice
+ 	- [x] - runs at 90fps
  	- [ ] - deleting objects __* -> Scrapped *__
  	- [ ] - highlight objects when they're within grab range __* -> Scrapped *__
 
