@@ -35,13 +35,15 @@ Zoilo Mercedes
  	- [x] - set appropriate scale and physics on objects
  	- [x] - create UI
  	- [x] - raycast selector for UI
- 	- [x] - "no-go" zones added
+ 	- [x] - no teleport zones added
  	- [x] - level progression
  	- [ ] - 4 different levels
  	- [ ] - rework the target object to show pointer above target position
  	- [ ] - make environment nice
  	- [ ] - runs at 90fps
- 	- [ ] - deleting objects _** -> scrapped **_
+ 	- [ ] - deleting objects __* -> Scrapped *__
+ 	- [ ] - highlight objects when they're within grab range __* -> Scrapped *__
+
 
 # About this Project
-This project took about 3-4 weeks worth of work to complete. I really enjoyed learning SteamVR and hooking up various functions to the controllers. I found a couple of things very challenging while creating this project; among these were figuring out how to best organize the code I was writing, and implementing the specific teleportation aim mechanic I desired. I ran and tested this environment using the HTC Vive.
+This project took about 3-4 weeks worth of work to complete. I really enjoyed learning SteamVR and hooking up various functions to the controllers. I found a couple of things very challenging while creating this project; among these were figuring out how to best organize the code I was writing, and implementing the specific teleportation aim mechanic I desired. I developed and tested this environment using the HTC Vive.

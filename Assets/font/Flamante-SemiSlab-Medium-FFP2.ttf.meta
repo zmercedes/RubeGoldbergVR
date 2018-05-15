@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a8082284410b9fb4491c6a4b6fce261a
+timeCreated: 1526324413
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Flamante SemiSlab
+  fontNames:
+  - Flamante SemiSlab
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

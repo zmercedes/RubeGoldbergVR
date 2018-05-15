@@ -7,15 +7,22 @@ using System;
 
 public class BallActions : MonoBehaviour {
 
-	Vector3 startPosition;
-	bool cheating = false;
-	bool isGrabbed = false;
-	Rigidbody rigidBody;
+	// ball info
+	private Vector3 startPosition;
+	private bool cheating = false;
+	private bool isGrabbed = false;
+	private Rigidbody rigidBody;
 	public float maxAngVel;
 	public CollectibleSetter collectibles;
+
+	// audio
+	private AudioSource[] sounds;
+
+	// action taken on meeting win condition
 	public event Action winCon;
 
 	void Awake () {
+		sounds = GetComponents<AudioSource>();
 		rigidBody = GetComponent<Rigidbody>();
 		rigidBody.maxAngularVelocity = maxAngVel;
 		startPosition = transform.position;
