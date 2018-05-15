@@ -22,6 +22,7 @@ public class BallActions : MonoBehaviour {
 	private AudioSource ballRoll;
 	private AudioSource ballLand;
 	private AudioSource starCollect;
+	private AudioSource fail;
 
 	// action taken on meeting win condition
 	public event Action winCon;
@@ -31,6 +32,7 @@ public class BallActions : MonoBehaviour {
 		starCollect = sources[0];
 		ballLand = sources[1];
 		ballRoll = sources[2];
+		fail = sources[3];
 		rigidBody = GetComponent<Rigidbody>();
 		rigidBody.maxAngularVelocity = maxAngVel;
 		startPosition = transform.position;
@@ -47,11 +49,10 @@ public class BallActions : MonoBehaviour {
 	}
 
 	void RollCheck(){
-		if(rigidBody.angularVelocity.magnitude > 2 && !ballRoll.isPlaying){
+		if(rigidBody.angularVelocity.magnitude > 0.1f && !ballRoll.isPlaying && colliding)
 			ballRoll.Play();
-		} else if(rigidBody.angularVelocity.magnitude < 2){
+		else if(rigidBody.angularVelocity.magnitude < 0.1f || !colliding)
 			ballRoll.Stop();
-		}
 	}
 
 	void CheatCheck(){
@@ -65,6 +66,7 @@ public class BallActions : MonoBehaviour {
 
 	void Reset(){
 		ResetVelocity();
+		fail.Play();
 		transform.position = startPosition;
 		collectibles.Reset();
 		cheating = false;

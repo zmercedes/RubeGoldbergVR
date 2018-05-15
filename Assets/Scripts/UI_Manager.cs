@@ -11,11 +11,15 @@ public class UI_Manager : MonoBehaviour {
 
 	// UI points
 	public Transform uInterface;
-	GameObject mainUI;
-	GameObject winUI;
-	int current = 1;
+	private GameObject mainUI;
+	private GameObject winUI;
+
+	// win sound
+	private AudioSource win;
+	private int current = 1;
 
 	void Start() {
+		win = GetComponent<AudioSource>();
 		mainUI = uInterface.GetChild(1).gameObject;
 		winUI = uInterface.GetChild(2).gameObject;
 		FindObjectOfType<BallActions>().winCon += OnWin;
@@ -29,6 +33,7 @@ public class UI_Manager : MonoBehaviour {
 
 	void OnWin(){
 		mainUI.SetActive(false);
+		win.Play();
 		uInterface.gameObject.SetActive(true);
 		winUI.SetActive(true);
 	}
