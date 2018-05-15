@@ -39,7 +39,7 @@ Zoilo Mercedes
  	- [x] - level progression
  	- [x] - add sound 	
  	- [x] - rework the target object to show pointer above target position
- 	- [ ] - 4 different levels
+ 	- [x] - 4 different levels
  	- [x] - make environment nice
  	- [x] - runs at 90fps
  	- [ ] - deleting objects __* -> Scrapped *__
