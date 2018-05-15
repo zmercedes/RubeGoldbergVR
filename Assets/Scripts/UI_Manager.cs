@@ -29,6 +29,7 @@ public class UI_Manager : MonoBehaviour {
 
 	void OnWin(){
 		mainUI.SetActive(false);
+		uInterface.gameObject.SetActive(true);
 		winUI.SetActive(true);
 	}
 

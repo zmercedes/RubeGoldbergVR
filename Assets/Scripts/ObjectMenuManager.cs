@@ -7,7 +7,7 @@ using UnityEngine;
 public class ObjectMenuManager : MonoBehaviour {
 
 	// object manager ui reference
-	public Transform OMUI;
+	private Transform OMUI;
 
 	// menu object information
 	private GameObject[] objects;
