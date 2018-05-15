@@ -59,7 +59,6 @@ public class ArcRenderer : MonoBehaviour {
 		if(controller.eulerAngles.x < 305 && controller.eulerAngles.x > 90){
 			valid = false;
 			timeToTarget = 0.01f;
-			targetObject.SetActive(false);
 		} else {
 			valid = true;
 			timeToTarget = time;
@@ -150,5 +149,6 @@ public class ArcRenderer : MonoBehaviour {
 	void SetValid(){
 		int i = valid ? 0 : 1;
 		arcRend.sharedMaterial = materialIndicators[i];
+		targetObject.SetActive(valid);
 	}
 }
