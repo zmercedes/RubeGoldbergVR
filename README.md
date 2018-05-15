@@ -37,8 +37,9 @@ Zoilo Mercedes
  	- [x] - raycast selector for UI
  	- [x] - no teleport zones added
  	- [x] - level progression
- 	- [ ] - 4 different levels
+ 	- [x] - add sound 	
  	- [ ] - rework the target object to show pointer above target position
+ 	- [ ] - 4 different levels
  	- [ ] - make environment nice
  	- [ ] - runs at 90fps
  	- [ ] - deleting objects __* -> Scrapped *__
