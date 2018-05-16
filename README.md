@@ -47,4 +47,4 @@ Zoilo Mercedes
 
 
 # About this Project
-This project took about 3-4 weeks worth of work to complete. I really enjoyed learning SteamVR and hooking up various functions to the controllers. I found a couple of things very challenging while creating this project; among these were figuring out how to best organize the code I was writing, and implementing the specific teleportation aim mechanic I desired. I developed and tested this environment using the HTC Vive.
+This project took about 3-4 weeks worth of work to complete. I really enjoyed learning SteamVR and hooking up various functions to the controllers. I found a couple of things very challenging while creating this project; among these were figuring out how to best organize the code I was writing, and implementing the specific teleportation aim mechanic I desired. I developed and tested this environment using the HTC Vive on Unity version 2017.1.3, SteamVR version 1.2.3.
