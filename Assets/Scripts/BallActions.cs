@@ -75,12 +75,16 @@ public class BallActions : MonoBehaviour {
 	void ResetVelocity(){
 		rigidBody.velocity = Vector3.zero;
 		rigidBody.angularVelocity = Vector3.zero;
+		rigidBody.isKinematic = false;
+		transform.SetParent(null);
 	}
 
 	void OnCollisionEnter(Collision col){
 		colliding = true;
-		if(col.gameObject.tag == "teleport" || cheating)
+		if(col.gameObject.tag == "teleport" || cheating){
 			Reset();
+			return;
+		}
 
 		ballLand.Play();
 
@@ -99,7 +103,9 @@ public class BallActions : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col){
-		if(col.tag == "collect"){
+		if(cheating){
+			Reset();
+		} else if(col.tag == "collect"){
 			starCollect.Play();
 			Destroy(col.gameObject);
 		}
