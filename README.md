@@ -31,7 +31,7 @@ Zoilo Mercedes
  	- [x] - create goal that loads next level on ball hitting it after having collected all collectibles
  	- [x] - create anti cheating mechanics: the ball must be thrown from initial platform area in order to not trigger this mechanic
  	- [x] - can limit the number of objects that can be placed in a level, can vary per level
- 7. [ ] 7. final polish!
+ 7. [x] 7. final polish!
  	- [x] - set appropriate scale and physics on objects
  	- [x] - create UI
  	- [x] - raycast selector for UI
